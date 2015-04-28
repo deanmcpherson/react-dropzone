@@ -49,6 +49,7 @@ var Dropzone = React.createClass({
   },
 
   onClick: function () {
+    if (this.props.noClick) return; 
     this.refs.fileInput.getDOMNode().click();
   },
 
@@ -71,7 +72,7 @@ var Dropzone = React.createClass({
 
     return (
       <div className={className} style={style} onClick={this.onClick} onDragLeave={this.onDragLeave} onDragOver={this.onDragOver} onDrop={this.onDrop}>
-        <input style={{display: 'none' }} type='file' multiple ref='fileInput' onChange={this.onDrop} />
+        <input style={{display: 'none'}} type='file' multiple ref='fileInput' onChange={this.onDrop} />
         {this.props.children}
       </div>
     );
